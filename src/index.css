@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  font-family: "DM Sans", system-ui, sans-serif;
+
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --surface-soft: #ebe8df;
+
+  --ink: #172033;
+  --ink-soft: #344054;
+  --muted: #667085;
+
+  --navy: #101a2d;
+  --navy-soft: #17243a;
+
+  --gold: #b98b3d;
+  --gold-light: #dfc68f;
+
+  --line: rgba(23, 32, 51, 0.12);
+  --line-strong: rgba(23, 32, 51, 0.2);
+
+  color: var(--ink);
+  background: var(--bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+html.dark-theme {
+  --bg: #080e19;
+  --surface: #101a2d;
+  --surface-soft: #162238;
+
+  --ink: #f8f6ef;
+  --ink-soft: #d8dde7;
+  --muted: #a7b0c0;
+
+  --navy: #050a13;
+  --navy-soft: #111d31;
+
+  --gold: #d5ad61;
+  --gold-light: #edd9a9;
+
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================
+   BASE
+========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg);
+  color: var(--ink);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* =========================
+   DESIGN SYSTEM CLASSES
+========================= */
+
+.theme-bg {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.theme-surface {
+  background: var(--surface);
+  color: var(--ink);
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+.theme-soft {
+  background: var(--surface-soft);
+  color: var(--ink);
+}
+
+.theme-text {
+  color: var(--ink);
+}
+
+.theme-muted {
+  color: var(--muted);
+}
+
+.theme-line {
+  border-color: var(--line);
+}
+
+/* =========================
+   DARK MODE SAFETY OVERRIDES
+========================= */
+
+html.dark-theme .theme-surface {
+  color: var(--ink);
+}
+
+html.dark-theme .theme-surface .text-\[\#172033\],
+html.dark-theme .theme-surface .text-\[\#101a2d\],
+html.dark-theme .theme-surface .text-\[\#0d1729\] {
+  color: var(--ink) !important;
+}
+
+html.dark-theme .theme-surface .text-\[\#172033\]\/60,
+html.dark-theme .theme-surface .text-\[\#172033\]\/50,
+html.dark-theme .theme-surface .text-\[\#172033\]\/40 {
+  color: var(--muted) !important;
+}
+
+html.dark-theme .theme-surface .bg-white {
+  background: var(--surface-soft) !important;
+}
+
+html.dark-theme .theme-surface .border-\[\#172033\]\/10 {
+  border-color: var(--line) !important;
+}
+
+/* =========================
+   PREMIUM CURSOR
+========================= */
+
+/* =========================================
+   TIS PREMIUM CUSTOM CURSOR
+========================================= */
+
+.tis-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #d5ad61;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  transform: translate3d(-100px, -100px, 0);
+
+  margin-left: -4px;
+  margin-top: -4px;
+
+  box-shadow:
+    0 0 0 4px rgba(213, 173, 97, 0.12),
+    0 0 18px rgba(213, 173, 97, 0.35);
+
+  transition:
+    width 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    margin 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease;
+}
+
+
+/* Outer follower */
+
+.tis-cursor-outline {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 34px;
+  height: 34px;
+
+  border: 1px solid rgba(213, 173, 97, 0.75);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 99998;
+
+  transform: translate3d(-100px, -100px, 0);
+
+  margin-left: -17px;
+  margin-top: -17px;
+
+  transition:
+    width 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    height 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    margin 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Hover state */
+
+.tis-cursor-outline.cursor-hover {
+  width: 58px;
+  height: 58px;
+
+  margin-left: -29px;
+  margin-top: -29px;
+
+  border-color: #d5ad61;
+
+  background: rgba(213, 173, 97, 0.08);
+
+  box-shadow:
+    0 0 0 1px rgba(213, 173, 97, 0.08),
+    0 0 30px rgba(213, 173, 97, 0.12);
+}
+
+
+.tis-cursor-dot.cursor-dot-hover {
+  width: 5px;
+  height: 5px;
+
+  margin-left: -2.5px;
+  margin-top: -2.5px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.8);
+}
+
+
+/* Hide custom cursor on mobile/tablet touch devices */
+
+@media (pointer: coarse) {
+  .tis-cursor-dot,
+  .tis-cursor-outline {
+    display: none;
+  }
+}
+
+.cursor-ring.is-hovering {
+  width: 64px;
+  height: 64px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+@media (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-soft);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 999px;
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
